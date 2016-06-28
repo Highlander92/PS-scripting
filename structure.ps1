@@ -18,9 +18,15 @@ $VNXSerial3 = "192.168.2.207"
 $VNXSerial4 = "192.168.2.205"
 
 #Loop
-$VNX = "$VNXSerial1 , $VNXSerial2 , $VNXSerial3, $VNXSerial4" 
+$VNX = $VNXSerial1 , $VNXSerial2 , $VNXSerial3, $VNXSerial4 
 foreach ($device in $VNX) 
-{if ($device -eq 'condition') { break }
+{if ($device -eq $VNXSerial4) { 
+
+    <#When & If $device is equal to condition, 
+    Print out $device and break loop #>
+
+    $device  
+    break }
 }
 
 
@@ -31,11 +37,16 @@ $VPLEXSerial3 = "192.168.2.223"
 $VPLEXSerial4 = "192.168.2.265"
 
 #loop
-$VPLEX = "$VPLEXSerial1, $VPLEXSerial2, $VPLEXSerial3, $VPLEXSerial4"
+$VPLEX = $VPLEXSerial1, $VPLEXSerial2, $VPLEXSerial3, $VPLEXSerial4
 foreach ($device in $VPLEX) 
-{if ($device -eq 'condition') { break }
-}
+{if ($device -eq $VPLEXSerial3) { 
 
+    <#When & If $device is equal to condition, 
+    Print out $device and break loop #>
+
+    $device
+    break }
+}
 
 
 #variables 
@@ -45,10 +56,17 @@ $CenteraSerial3 = "10.236.1.6:3683"
 $CenteraSerial4 = "10.236.1.6:3685"
 
 #loop
-$Centera = "$CenteraSerial1, $CenteraSerial2, $CenteraSerial3, $CenteraSerial4"
+$Centera = $CenteraSerial1, $CenteraSerial2, $CenteraSerial3, $CenteraSerial4
 foreach ($device in $Centera) 
-{if ($device -eq 'condition') { break }
+{if ($device -eq $CenteraSerial2) { 
+
+    <#When & If $device is equal to condition, 
+    Print out $device and break loop #>
+
+    $device
+    break }
 }
+
 
 #variables
 $VmaxSerial1 = "192.168.2.37"
@@ -57,7 +75,13 @@ $VmaxSerial3 = "192.168.2.239"
 $VmaxSerial4 = "192.168.2.236"
 
 #loop
-$Vmax = "$VmaxSerial1, $VmaxSerial2, $VmaxSerial3, $VmaxSerial4"
-foreach ($device in $Vmax) 
-{if ($device -eq 'condition') { break }
+$Vmax = $VmaxSerial1, $VmaxSerial2, $VmaxSerial3, $VmaxSerial4
+foreach ($device in $Vmax)
+{if ($device -eq $VmaxSerial3) { 
+
+    <#When & If $device is equal to condition, 
+    Print out $device and break loop #> 
+
+    $device
+    break }
 }
