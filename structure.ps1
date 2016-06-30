@@ -4,7 +4,7 @@ $json| ConvertFrom-Json #| select -ExpandProperty vnx
 #>
 
 
-<#Not needed for now/Possibly later on
+<#
 $devices = 
 #gets the properities and methods 
 Get-Member -MemberType Properties | 
@@ -85,3 +85,6 @@ foreach ($device in $Vmax)
     $device
     break }
 }
+
+
+Get what needs to get excutred for each device 
