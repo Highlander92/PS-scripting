@@ -1,26 +1,18 @@
-﻿<#calls JSON file
-$json = (Get-Content C:\catalog.json -Raw)
-$json| ConvertFrom-Json #| select -ExpandProperty vnx 
-#>
+﻿$json2 = (Get-Content C:\catalog.JSON) -join "`n" | ConvertFrom-Json
+$json2 | select -expand VNX
+$json2 | select -expand Centera
 
-
-<#
+<#Not needed for now/Possibly later on
 $devices = 
 #gets the properities and methods 
 Get-Member -MemberType Properties | 
 Select-Object -ExpandProperty 
 #>
 
-#variables
-$VNXSerial1 = "192.168.2.204" 
-$VNXSerial2 = "192.168.2.206"
-$VNXSerial3 = "192.168.2.207"
-$VNXSerial4 = "192.168.2.205"
-
 #Loop
-$VNX = $VNXSerial1 , $VNXSerial2 , $VNXSerial3, $VNXSerial4 
+$VNX = #$VNXSerial1 , $VNXSerial2 , $VNXSerial3, $VNXSerial4 
 foreach ($device in $VNX) 
-{if ($device -eq $VNXSerial4) { 
+{if ($device -eq $'condition1') { 
 
     <#When & If $device is equal to condition, 
     Print out $device and break loop #>
@@ -30,16 +22,10 @@ foreach ($device in $VNX)
 }
 
 
-#Variables
-$VPLEXSerial1 ="192.168.2.223"
-$VPLEXSerial2 = "192.168.2.245"
-$VPLEXSerial3 = "192.168.2.223"
-$VPLEXSerial4 = "192.168.2.265"
-
 #loop
-$VPLEX = $VPLEXSerial1, $VPLEXSerial2, $VPLEXSerial3, $VPLEXSerial4
+$VPLEX = #$VPLEXSerial1, $VPLEXSerial2, $VPLEXSerial3, $VPLEXSerial4
 foreach ($device in $VPLEX) 
-{if ($device -eq $VPLEXSerial3) { 
+{if ($device -eq $'condition2') { 
 
     <#When & If $device is equal to condition, 
     Print out $device and break loop #>
@@ -49,16 +35,10 @@ foreach ($device in $VPLEX)
 }
 
 
-#variables 
-$CenteraSerial1 = "10.236.2.6:3682"
-$CenteraSerial2 = "10.236.1.6:3682"
-$CenteraSerial3 = "10.236.1.6:3683"
-$CenteraSerial4 = "10.236.1.6:3685"
-
 #loop
-$Centera = $CenteraSerial1, $CenteraSerial2, $CenteraSerial3, $CenteraSerial4
-foreach ($device in $Centera) 
-{if ($device -eq $CenteraSerial2) { 
+$Centera = #$CenteraSerial1, $CenteraSerial2, $CenteraSerial3, $CenteraSerial4
+foreach ($device in $Centera)
+{if ($device -eq $'condition3') { 
 
     <#When & If $device is equal to condition, 
     Print out $device and break loop #>
@@ -67,17 +47,10 @@ foreach ($device in $Centera)
     break }
 }
 
-
-#variables
-$VmaxSerial1 = "192.168.2.37"
-$VmaxSerial2 = "192.168.2.238"
-$VmaxSerial3 = "192.168.2.239"
-$VmaxSerial4 = "192.168.2.236"
-
 #loop
-$Vmax = $VmaxSerial1, $VmaxSerial2, $VmaxSerial3, $VmaxSerial4
+$Vmax = #$VmaxSerial1, $VmaxSerial2, $VmaxSerial3, $VmaxSerial4
 foreach ($device in $Vmax)
-{if ($device -eq $VmaxSerial3) { 
+{if ($device -eq $'condition4') { 
 
     <#When & If $device is equal to condition, 
     Print out $device and break loop #> 
@@ -87,4 +60,5 @@ foreach ($device in $Vmax)
 }
 
 
-Get what needs to get excutred for each device 
+
+
