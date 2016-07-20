@@ -1,0 +1,26 @@
+$json = (Get-Content C:\bud.json -Raw)
+$it = $json | ConvertFrom-Json
+$MatchingCondition = "id"               #Leave as $null for no match, or any property within the JSON. Eg. id, index, title, type, width
+$MatchingItem = "481511989372804"                      	#Specific property value you are looking for. This will display only the entry containing this and the above values
+
+#an empty array to catch the results
+$OutputObj = @()  
+
+
+foreach ($i in $it.columns){
+    $obj = new-object PSObject
+    $obj | Add-Member -MemberType NoteProperty -Name "id" -Value $i.id
+    $obj | Add-Member -MemberType NoteProperty -Name "index" -Value $i.index
+    $obj | Add-Member -MemberType NoteProperty -Name "title" -Value $i.title
+    $obj | Add-Member -MemberType NoteProperty -Name "type" -Value $i.type
+    $obj | Add-Member -MemberType NoteProperty -Name "width" -Value $i.width
+    $OutputObj += $obj
+}
+
+if ($MatchingCondition -ne $null){
+    $OutputObj | where {$_.$MatchingCondition -match $MatchingItem}
+    }
+
+else{
+    $OutputObj
+    }
